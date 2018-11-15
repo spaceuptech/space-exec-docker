@@ -1,0 +1,37 @@
+version: '3'
+services:
+  space-exec:
+    build: .
+    image: space-cloud/space-exec:latest
+    command: ./space-exec -a <account> -p <project> -s <secret> # or paste Linux Command here
+    ports:
+    - 8080:8080
+    depends_on:
+    - nats # nats://nats:4222
+    - mongodb # mongodb://mongodb:27017
+    - mysql # mysql://root:mysql@mysql:3306/space-cloud
+    - postgresql # postgresql://postgres:postgres@postgresql:5432/space-cloud
+  nats:
+    image: nats:latest
+  mongodb:
+    image: mongo:latest
+    volumes:
+    - mongodb:/data/db
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: space-cloud
+    volumes:
+    - mysql:/var/lib/mysql
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: space-cloud
+    volumes:
+    - postgresql:/var/lib/postgresql/data
+volumes:
+  mongodb:
+  mysql:
+  postgresql:
