@@ -7,13 +7,13 @@ Lets you run space-exec as docker container.
 To run space-exec (using linux deployment command)
 
 ```shell
-docker run spaceuptech/space-exec ./space-exec -a <account> -p <project> -s <secret>
+docker run --name space-exec spaceuptech/space-exec ./space-exec -a <account> -p <project> -s <secret>
 ```
 
 ## Find Us
 
 * [GitHub](https://github.com/spaceuptech)
-* [DockerHub](https://hub.docker.com/space-cloud)
+* [DockerHub](https://hub.docker.com/u/spaceuptech)
 
 ## Authors
 
