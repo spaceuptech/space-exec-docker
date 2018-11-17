@@ -7,7 +7,7 @@ Lets you run space-exec as docker container.
 To run space-exec (using linux deployment command)
 
 ```shell
-docker run --name space-exec spaceuptech/space-exec ./space-exec -a <account> -p <project> -s <secret>
+docker run --name space-exec -d spaceuptech/space-exec ./space-exec -a <account> -p <project> -s <secret>
 ```
 
 ## Find Us
